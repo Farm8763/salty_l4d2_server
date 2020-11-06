@@ -8,7 +8,7 @@ Dependencies
 - Same with missing_content.vpk, it needs to go into /srv/l4d2-mods/missing_content.vpk on the salt master
 
 Deploying to minion
-- salt '<minion>' state.highstate
+- salt 'minion' state.highstate
 
 Starting the server after deployed (currently ran on the minion after sshing in)
 - /home/steam/L4D2/srcds_run -console -game left4dead2
