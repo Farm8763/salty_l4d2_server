@@ -1,4 +1,4 @@
-# salty_l4d2_server
+# Dedicated L4D2 Server with custom maps and 5 player coop/5v5 versus
 
 Dependencies
 - CentOS 7 DigitalOcean droplet that is a minion to a salt master. Plus setting up ssh keys and what have you...
