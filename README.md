@@ -3,7 +3,8 @@
 Building on some groundwork by [@Mustack](https://github.com/Mustack) , this project automated the creation of a L4D2 Dedicatied server. With the 2020 pandemic we started playing more L4D2 and found documentation for setting up a dedicated server severely lacking/outdated. 
 
 ### Setting up salt master
-- Basically follow the procedures on the Saltstack page [Saltstack Package Repo](https://repo.saltstack.com/#rhel) make sure to select the correct tab for CentOS 7 or CentOS 8. This was only tested/ran on CentOS 7. 
+#### Note: You need a Salt Master to run this project. Recommended CentOS 7.
+- Follow the procedures on the Saltstack page [Saltstack Package Repo](https://repo.saltstack.com/#rhel) make sure to select the correct tab for CentOS 7. This was only tested/ran on CentOS 7. 
 - You definitely need `salt-master` and `salt-cloud`, you might need `salt-api` and `salt-ssh`
 - Checkout the project files into their specific folders
 
