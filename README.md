@@ -24,10 +24,12 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 - Workshop files were too big for Github to be uploaded. They need to go into `/srv/l4d2-mods/workshop` on the salt master. See [Google Drive with big files](https://drive.google.com/drive/folders/1a0FjSMaqX_FOQyrt26YtgmdzSO_SrCBg?usp=sharing)
 - Same with missing_content.vpk, it needs to go into `/srv/salt/l4d2-mods/missing_content.vpk` on the salt master
 
-### Deploy (from salt master)
+### Deploy
+#### Note: Ran on the salt master
 `salt '*' state.highstate`
 
-### Starting the server after deployed (currently ran on the minion after sshing in as the steam user)
+### Starting the server after deployed 
+#### Note: Currently ran on the minion after sshing in as the steam user
 `/home/steam/L4D2/srcds_run -console -game left4dead2`
 
 ### Resources
