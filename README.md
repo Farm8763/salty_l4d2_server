@@ -32,6 +32,13 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 #### Note: Currently ran on the minion after sshing in as the steam user
 `/home/steam/L4D2/srcds_run -console -game left4dead2`
 
+### External Dependancies
+#### Note: Fetched automatically or included
+- [Sourcemod v1.10.0-r6499](https://www.sourcemod.net/)
+- [Metamod v1.10.7-r971](https://www.sourcemm.net/)
+- [L4dtoolz L4D2 Mod](https://forums.alliedmods.net/showthread.php?t=93600)
+- [Superversus L4D2 Mod](https://forums.alliedmods.net/showthread.php?p=830069?p=830069)
+
 ### Resources
 - [How to setup a dedicated server on Debian/Ubuntu](https://steamcommunity.com/sharedfiles/filedetails/?id=895492473)
 - [L4D2 Cvars](https://developer.valvesoftware.com/wiki/List_of_L4D2_Cvars)
@@ -39,7 +46,7 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 - [Digital Ocean Salt Cloud Tutorial](https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources)
 - [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Linux)
 - [Original server config](https://www.dropbox.com/s/5i7kovj8fd2g6zv/Detailed%20Server%20Config.txt?dl=0)
-- [L4dtoolz](https://forums.alliedmods.net/showthread.php?t=93600)
+
 
 
 ### TODO 
