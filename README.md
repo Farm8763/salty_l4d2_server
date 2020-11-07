@@ -5,8 +5,8 @@
 - TODO: 
 
 ### Spinning up a DigitalOcean droplet
-- Need to set up ssh keys with digitalocean, as well as access keys. See [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources)  for advice
-- Add missing values to `/etc/salt/cloud.providers.d/digitalocean.conf`
+- You need to set up ssh keys with digitalocean, as well as access keys. See [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources)  for advice
+- Add your missing values to `/etc/salt/cloud.providers.d/digitalocean.conf`
 
 ### Command to spin up a droplet (dev droplet)
 `salt-cloud -P -m /etc/salt/cloud.maps.d/dev-environment.map -l debug`
