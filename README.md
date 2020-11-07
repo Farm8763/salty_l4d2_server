@@ -23,4 +23,6 @@ Deploying L4D2 server to minion
 Starting the server after deployed (currently ran on the minion after sshing in)
 - /home/steam/L4D2/srcds_run -console -game left4dead2
 
-TODO: Run the server as a service
+TODO 
+- Run the server as a service
+- Clean up Readme formatting
