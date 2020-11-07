@@ -1,8 +1,11 @@
 # Dedicated L4D2 Server 
 ## With custom maps, 5 player coop and 5v5 versus
+Building on some groundwork by [@Mustack](https://github.com/Mustack) , this project automated the creation of a L4D2 Dedicatied server. With the 2020 pandemic we started playing more L4D2 and found documentation for setting up a dedicated server severely lacking/outdated. 
 
 ### Setting up salt master
-- TODO: 
+- Basically follow the procedures on the Saltstack page [Saltstack Package Repo](https://repo.saltstack.com/#rhel) make sure to select the correct tab for CentOS 7 or CentOS 8. This was only tested/ran on CentOS 7. 
+- You definitely need `salt-master` and `salt-cloud`, you might need `salt-api` and `salt-ssh`
+- Checkout the project files into their specific folders
 
 ### Spinning up a DigitalOcean droplet
 - You need to set up ssh keys with digitalocean, as well as access keys. See [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources)  for advice
@@ -27,5 +30,16 @@
 ### Starting the server after deployed (currently ran on the minion after sshing in as the steam user)
 `/home/steam/L4D2/srcds_run -console -game left4dead2`
 
+### Resources
+- [How to setup a dedicated server on Debian/Ubuntu](https://steamcommunity.com/sharedfiles/filedetails/?id=895492473)
+- [L4D2 Cvars](https://developer.valvesoftware.com/wiki/List_of_L4D2_Cvars)
+- [Digital Ocean User Setup](https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-centos-quickstart)
+- [Digital Ocean Salt Cloud Tutorial](https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources)
+- [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Linux)
+- [Original server config](https://www.dropbox.com/s/5i7kovj8fd2g6zv/Detailed%20Server%20Config.txt?dl=0)
+- [L4dtoolz](https://forums.alliedmods.net/showthread.php?t=93600)
+
+
 ### TODO 
 - Run the server as a service
+- Salt doesn't seem to support SSH key file passwords
