@@ -3,7 +3,7 @@ Setting up salt master
 - TODO: 
 
 Spinning up a DigitalOcean droplet
-- Need to set up ssh keys with digitalocean. See https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources  for advice
+- Need to set up ssh keys with digitalocean, as well as access keys. See https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources  for advice
 - Add missing values to /etc/salt/cloud.providers.d/digitalocean.conf
 
 Command to spin up a droplet (dev droplet)
