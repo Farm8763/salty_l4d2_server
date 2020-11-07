@@ -16,7 +16,7 @@ Deploying L4D2 server to minion
 - Note: If you spun up the DigitalOcean droplet with the code above, it's already a minion. Otherwise you're on your own. 
 - You need to set the Steam Group ID in the /salt/l4d2-server/server.cfg.jinja file. To get it for your group, in the 'Edit group profile' the 'ID' is the group number you need for the server
 - Clients need to subscribe to the workshop maps https://steamcommunity.com/sharedfiles/filedetails/?id=2218692186 or they can't connect when using a custom map.
-- Workshop files were too big for Github to be uploaded. They need to go into /srv/l4d2-mods/workshop on the salt master https://drive.google.com/drive/folders/1e4cfri626wTkqWHSPLDW2wEXQa9LnCae?usp=sharing 
+- Workshop files were too big for Github to be uploaded. They need to go into /srv/l4d2-mods/workshop on the salt master https://drive.google.com/drive/folders/1a0FjSMaqX_FOQyrt26YtgmdzSO_SrCBg?usp=sharing
 - Same with missing_content.vpk, it needs to go into /srv/l4d2-mods/missing_content.vpk on the salt master
 - Deploy (from salt master) with: salt '*' state.highstate
 
