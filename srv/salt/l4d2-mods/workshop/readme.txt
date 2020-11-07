@@ -1,0 +1,1 @@
+Workshop files were too big for Github to be uploaded. They need to go into /srv/l4d2-mods/workshop on the salt master https://drive.google.com/drive/folders/1a0FjSMaqX_FOQyrt26YtgmdzSO_SrCBg?usp=sharing
