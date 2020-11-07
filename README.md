@@ -36,7 +36,7 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 #### Note: Fetched automatically or included
 - [Sourcemod v1.10.0-r6499](https://www.sourcemod.net/)
 - [Metamod v1.10.7-r971](https://www.sourcemm.net/)
-- [L4dtoolz L4D2 Mod](https://forums.alliedmods.net/showthread.php?t=93600)
+- [L4dtoolz L4D2 Mod v1.0.0.9h](https://forums.alliedmods.net/showthread.php?t=93600)
 - [Superversus L4D2 Mod](https://forums.alliedmods.net/showthread.php?p=830069?p=830069)
 
 ### Resources
@@ -46,7 +46,7 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 - [Digital Ocean Salt Cloud Tutorial](https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources)
 - [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Linux)
 - [Original server config](https://www.dropbox.com/s/5i7kovj8fd2g6zv/Detailed%20Server%20Config.txt?dl=0)
-
+- [Custom L4D2 Campaigns](https://steamcommunity.com/sharedfiles/filedetails/?id=625654184)
 
 
 ### TODO 
