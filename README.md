@@ -22,7 +22,7 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 #### Note: If you spun up the DigitalOcean droplet with the code above, it's already a minion. Otherwise you're on your own. 
 - You need to set the Steam Group ID (`sv_steamgroup`) in the `/srv/salt/l4d2-server/server.cfg.jinja` file. To get the value for your group, in the 'Edit group profile' the 'ID' is the group number you need for the server
 - Clients need to subscribe to the workshop maps [Steam Workshop Collection](https://steamcommunity.com/sharedfiles/filedetails/?id=2218692186) or they can't connect when using a custom map.
-- Workshop files were too big for Github to be uploaded. They need to go into `/srv/l4d2-mods/workshop` on the salt master. See [Google Drive with big files](https://drive.google.com/drive/folders/1a0FjSMaqX_FOQyrt26YtgmdzSO_SrCBg?usp=sharing)
+- Workshop files were too big for Github to be uploaded. They need to go into `/srv/salt/l4d2-mods/workshop` on the salt master. See [Google Drive with big files](https://drive.google.com/drive/folders/1a0FjSMaqX_FOQyrt26YtgmdzSO_SrCBg?usp=sharing)
 - Same with missing_content.vpk, it needs to go into `/srv/salt/l4d2-mods/missing_content.vpk` on the salt master
 
 ### Deploy
