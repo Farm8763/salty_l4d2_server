@@ -1,7 +1,7 @@
 //--> This is the name for your server
 hostname {{ grains['localhost'] }}
 
-sv_maxplayers 14
+sv_maxplayers 18
 sv_force_unreserved 1
 //sb_all_bot_game 1
 
@@ -17,10 +17,10 @@ sv_gametypes "both"
 //----> Survival Only: mp_gamemode "survival"
 //----> Coop Only: mp_gamemode "coop"
 //----> Both: mp_gamemode "versus,coop"
-sm_cvar mp_gamemode "versus"
+sm_cvar mp_gamemode "{{ salt['pillar.get']('server_mode','versus')}}"
 
 //--> Steam group # to assign to server
-sv_steamgroup 12345678
+sv_steamgroup "{{ salt['pillar.get']('steamgroup', '12345678')}}"
 
 sm_cvar fps_max 0
 //--> Uncaps the servers maxfps limit

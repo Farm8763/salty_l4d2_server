@@ -15,9 +15,6 @@
 glibc.i686:
   pkg.installed
 
-libstdc++.i686:
-  pkg.installed
-
 wget:
   pkg.installed
 

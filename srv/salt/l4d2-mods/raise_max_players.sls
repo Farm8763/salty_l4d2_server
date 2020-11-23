@@ -20,6 +20,7 @@
 
 /home/steam/L4D2/left4dead2/cfg/sourcemod/l4d_superversus.cfg:
   file.managed:
+    - template: jinja
     - user: steam
     - group: steam
-    - source: salt://l4d2-mods/l4d_superversus.cfg
+    - source: salt://l4d2-mods/l4d_superversus.cfg.jinja
