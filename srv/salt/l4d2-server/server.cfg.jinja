@@ -20,7 +20,7 @@ sv_gametypes "both"
 sm_cvar mp_gamemode "{{ salt['pillar.get']('server_mode','versus')}}"
 
 //--> Steam group # to assign to server
-sv_steamgroup 12345678
+sv_steamgroup "{{ salt['pillar.get']('steamgroup', '12345678')}}"
 
 sm_cvar fps_max 0
 //--> Uncaps the servers maxfps limit
