@@ -34,7 +34,7 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 `/home/steam/L4D2/srcds_run -console -game left4dead2`
 
 ### Salted admin commands
-#### Note: Ran on the salt master
+#### Note: Ran on the salt master, restart of server process required
 ##### Change max players
 `salt '*' state.apply l4d2-mods.raise_max_players pillar='{"max_player_count": "<number of players>"}'`
 
