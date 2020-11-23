@@ -37,6 +37,7 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 #### Note: Ran on the salt master
 ##### Change max players
 `salt '*' state.apply l4d2-mods.raise_max_players pillar='{"max_player_count": "<number of players>"}'`
+Eg: `salt '*' state.apply l4d2-mods.raise_max_players pillar='{"max_player_count": "7"}'`
 
 ### External Dependancies
 #### Note: Fetched automatically or included
