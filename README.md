@@ -15,9 +15,6 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 ### Command to spin up a droplet (dev droplet)
 `salt-cloud -P -m /etc/salt/cloud.maps.d/dev-environment.map -l debug`
 
-### Command to destroy a droplet
-`salt-cloud -d -m /etc/salt/cloud.maps.d/dev-environment.map -l debug`
-
 ### Deploying L4D2 server to minion
 #### Note: If you spun up the DigitalOcean droplet with the code above, it's already a minion. Otherwise you're on your own. 
 - You need the Steam Group ID when deploying the server (below). To get the value for your group, in the 'Edit group profile' the 'ID' is the group number you need for the server
