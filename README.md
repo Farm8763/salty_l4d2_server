@@ -40,6 +40,9 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 
 Eg: `salt '*' state.apply l4d2-mods.raise_max_players pillar='{"max_player_count": "7"}'`
 
+##### Change server game mode
+`salt '*' state.apply l4d2-server.server-setup pillar='{"server_mode":"coop"}'`
+
 ### External Dependancies
 #### Note: Fetched automatically or included
 - [Sourcemod v1.10.0-r6499](https://www.sourcemod.net/)
