@@ -33,6 +33,11 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 #### Note: Currently ran on the minion after sshing in as the steam user
 `/home/steam/L4D2/srcds_run -console -game left4dead2`
 
+### Admin commands
+#### Note: Ran on the salt master
+##### Change max players
+`salt '*' state.apply l4d2-mods.raise_max_players pillar='{"max_player_count": "<number of players>"}'`
+
 ### External Dependancies
 #### Note: Fetched automatically or included
 - [Sourcemod v1.10.0-r6499](https://www.sourcemod.net/)
