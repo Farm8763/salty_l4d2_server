@@ -27,9 +27,15 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 
 ### Deploy
 #### Note: Ran on the salt master
+##### Minimum to deploy
 `salt '*' state.highstate pillar='{"steamgroup": "<steamgroup #>"}'`
 
 Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678"}'`
+
+##### Optionally, you can pass in server_mode and max_players as well
+`salt '*' state.highstate pillar='{"steamgroup": "<steamgroup #>", "max_player_count": "<number of players>", "server_mode":"<coop|versus>"}'`
+
+Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678", "max_player_count": "7", "server_mode":"coop"}'`
 
 ### Starting the server after deployed 
 #### Note: Currently ran on the minion after sshing in as the steam user
