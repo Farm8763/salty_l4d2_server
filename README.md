@@ -41,18 +41,6 @@ Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678", "max_player_cou
 #### Note: Currently ran on the minion after sshing in as the steam user
 `/home/steam/L4D2/srcds_run -console -game left4dead2`
 
-### Salted admin commands
-#### Note: Ran on the salt master, restart of server process required
-##### Change max players
-`salt '*' state.apply l4d2-mods.raise_max_players pillar='{"max_player_count": "<number of players>"}'`
-
-Eg: `salt '*' state.apply l4d2-mods.raise_max_players pillar='{"max_player_count": "7"}'`
-
-##### Change server game mode
-`salt '*' state.apply l4d2-server.server-setup pillar='{"server_mode":"<coop|versus>", "steamgroup": "<steamgroup #>"}'`
-
-Eg: `salt '*' state.apply l4d2-server.server-setup pillar='{"server_mode":"coop"}'`
-
 ### External Dependancies
 #### Note: Fetched automatically or included
 - [Sourcemod v1.10.0-r6499](https://www.sourcemod.net/)
