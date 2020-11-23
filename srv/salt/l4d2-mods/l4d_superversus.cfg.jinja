@@ -14,7 +14,7 @@ l4d_XtraHP "1"
 // Default: "4"
 // Minimum: "1.000000"
 // Maximum: "18.000000"
-l4d_infected_limit "5"
+l4d_infected_limit "{{ salt['pillar.get']('max_player_count', '5') }}"
 
 // Should we clear Lobby reservation? (For use with Left4DownTown extension ONLY)
 // -
@@ -28,20 +28,18 @@ l4d_killreservation "0"
 // Default: "0"
 // Minimum: "0.000000"
 // Maximum: "1.000000"
-l4d_supertank "0"
+l4d_supertank "1"
 
 // Maximum amount of survivors
 // -
 // Default: "4"
 // Minimum: "1.000000"
 // Maximum: "18.000000"
-l4d_survivor_limit "5"
+l4d_survivor_limit "{{ salt['pillar.get']('max_player_count', '5') }}"
 
 // Tanks HP Multiplier (multi*(survivors-4))
 // -
 // Default: "0.25"
 // Minimum: "0.010000"
 // Maximum: "1.000000"
-l4d_tank_hpmulti "0.25"
-
-
+l4d_tank_hpmulti "1"
