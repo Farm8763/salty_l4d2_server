@@ -17,7 +17,7 @@ sv_gametypes "both"
 //----> Survival Only: mp_gamemode "survival"
 //----> Coop Only: mp_gamemode "coop"
 //----> Both: mp_gamemode "versus,coop"
-sm_cvar mp_gamemode "versus"
+sm_cvar mp_gamemode "{{ salt['pillar.get']('server_mode','versus')}}"
 
 //--> Steam group # to assign to server
 sv_steamgroup 12345678
