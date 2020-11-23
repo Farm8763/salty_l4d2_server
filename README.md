@@ -42,6 +42,7 @@ Eg: `salt '*' state.apply l4d2-mods.raise_max_players pillar='{"max_player_count
 
 ##### Change server game mode
 `salt '*' state.apply l4d2-server.server-setup pillar='{"server_mode":"<coop|versus>"}'`
+
 Eg: `salt '*' state.apply l4d2-server.server-setup pillar='{"server_mode":"coop"}'`
 
 ### External Dependancies
