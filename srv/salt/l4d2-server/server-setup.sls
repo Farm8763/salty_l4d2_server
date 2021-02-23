@@ -20,6 +20,9 @@ wget:
 
 unzip:
   pkg.installed
+  
+vim-enhanced:
+  pkg.installed
 
 'wget -P /home/steam/Steam "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz"':
   cmd.run:
