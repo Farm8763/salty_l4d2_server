@@ -6,4 +6,4 @@ base:
 #    - l4d2-mods.custom-maps
 #    - l4d2-mods.source_meta_mod
 #    - l4d2-mods.raise_max_players
-    - steamcmd.valheim-setup
+    - valheim-server.valheim-setup
