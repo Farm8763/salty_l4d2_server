@@ -1,4 +1,4 @@
-# Dedicated L4D2 Server 
+# Dedicated L4D2 Server + Va;heim
 ## With custom maps, 5 player coop and 5v5 versus
 Building on some groundwork by [@Mustack](https://github.com/Mustack) , this project automated the creation of a L4D2 Dedicated server. With the 2020 pandemic we started playing more L4D2 and found documentation for setting up a dedicated server severely lacking/outdated. This project will setup a server with some select custom maps, 5 player coop and 5v5 versus. Modify `/srv/salt/top.sls` if you don't want every mod deployed.
 
