@@ -1,3 +1,16 @@
+/etc/ssl/private:
+  file.directory:
+    - mode: 755
+    - makedirs: True
+
+/etc/ssl/certs:
+  file.directory:
+    - mode: 755
+    - makedirs: True
+
+'openssl req -x509 -nodes -days 365 -batch -newkey rsa:2048 -keyout /etc/ssl/private/elastic_server.key -out /etc/ssl/certs/elastic_server.crt':
+  cmd.run
+
 setup_repo:
   pkgrepo.managed:
     - name: elasticsearch
