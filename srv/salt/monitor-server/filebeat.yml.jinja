@@ -21,7 +21,7 @@ filebeat.inputs:
 - type: log
 
   # Change to true to enable this input configuration.
-  enabled: false
+  enabled: true
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
@@ -148,7 +148,9 @@ setup.kibana:
   # Scheme and port can be left out and will be set to the default (http and 5601)
   # In case you specify and additional path, the scheme is required: http://localhost:5601/path
   # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
-  #host: "localhost:5601"
+  {% set ip_list = salt['mine.get']('*monitor', 'external_ip') %}
+  {% set ip=  ip_list.values() | first %}
+  host: "https://{{ ip }}:5601"
 
   # Kibana Space ID
   # ID of the Kibana Space into which the dashboards should be loaded. By default,
@@ -175,11 +177,9 @@ setup.kibana:
 # ---------------------------- Elasticsearch Output ----------------------------
 output.elasticsearch:
   # Array of hosts to connect to.
-  {% set ip_list = salt['mine.get']('*monitor', 'external_ip') %}
-  {% set ip=  ip_list.values() | first %}
   hosts: "{{ ip }}:9200"
   # Protocol - either `http` (default) or `https`.
-  #protocol: "https"
+#  protocol: "https"
 
   # Authentication credentials - either API key or username/password.
   #api_key: "id:api_key"
