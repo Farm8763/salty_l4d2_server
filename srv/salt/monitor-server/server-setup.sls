@@ -9,7 +9,9 @@
     - makedirs: True
 
 'openssl req -x509 -nodes -days 365 -batch -newkey rsa:2048 -keyout /etc/ssl/private/elastic_server.key -out /etc/ssl/certs/elastic_server.crt':
-  cmd.run
+  cmd.run:
+    - creates:
+      - /etc/ssl/private/elastic_server.key
 
 setup_repo:
   pkgrepo.managed:
@@ -31,6 +33,11 @@ kibana:
 
 '/bin/systemctl enable elasticsearch.service':
   cmd.run
+
+/etc/elasticsearch/elasticsearch.yml:
+  file.managed:
+    - template: jinja
+    - source: salt://monitor-server/elasticsearch.yml.jinja
 
 '/bin/systemctl start elasticsearch.service':
   cmd.run
