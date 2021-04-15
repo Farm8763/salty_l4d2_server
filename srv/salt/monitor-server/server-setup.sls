@@ -42,6 +42,10 @@ kibana:
 '/bin/systemctl start elasticsearch.service':
   cmd.run
 
+'/usr/share/elasticsearch/bin/elasticsearch-keystore add "bootstrap.password"':
+  cmd.run:
+    - stdin: '{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}'
+
 '/bin/systemctl enable kibana.service':
   cmd.run
 
