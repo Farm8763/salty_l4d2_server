@@ -39,12 +39,43 @@ kibana:
     - template: jinja
     - source: salt://monitor-server/elasticsearch.yml.jinja
 
-'/bin/systemctl start elasticsearch.service':
-  cmd.run
+'/usr/share/elasticsearch/bin/elasticsearch-certutil ca':
+  cmd.run:
+    - stdin: 'elastic-stack-ca.p12\n{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}'
+    - creates:
+      - /usr/share/elasticsearch/elastic-stack-ca.p12
+
+'/usr/share/elasticsearch/bin/elasticsearch-certutil cert --ca /usr/share/elasticsearch/elastic-stack-ca.p12':
+   cmd.run:
+    - stdin: '{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}\nelastic-certificates.p12\n{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}'
+    - creates:
+      - /usr/share/elasticsearch/elastic-certificates.p12
+
+/etc/elasticsearch/elastic-certificates.p12:
+  file.copy:
+    - source: /usr/share/elasticsearch/elastic-certificates.p12
+    - mode: 744
+    - force: True
+
+'/usr/share/elasticsearch/bin/elasticsearch-keystore add xpack.security.transport.ssl.keystore.secure_password':
+   cmd.run:
+    - stdin: '{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}'
+
+'/usr/share/elasticsearch/bin/elasticsearch-keystore add xpack.security.transport.ssl.truststore.secure_password':
+   cmd.run:
+    - stdin: '{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}'
 
 '/usr/share/elasticsearch/bin/elasticsearch-keystore add "bootstrap.password"':
   cmd.run:
     - stdin: '{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}'
+
+'/bin/systemctl start elasticsearch.service':
+  cmd.run
+
+set kibana_system password:
+  cmd.run:
+    - name: >
+        curl -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPUT -H 'Content-Type: application/json' 'http://{{ grains["ip4_interfaces"]["eth0"][0] }}:9200/_xpack/security/user/kibana_system/_password' -d '{"password":"{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}"}'
 
 '/bin/systemctl enable kibana.service':
   cmd.run
