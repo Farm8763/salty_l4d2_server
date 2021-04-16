@@ -17,3 +17,6 @@ filebeat:
 
 '/bin/systemctl enable filebeat.service':
   cmd.run
+
+'/bin/systemctl start filebeat.service':
+  cmd.run
