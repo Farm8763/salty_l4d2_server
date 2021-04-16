@@ -82,6 +82,11 @@ set beats_system password:
     - name: >
         curl -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPUT -H 'Content-Type: application/json' 'http://{{ grains["ip4_interfaces"]["eth0"][0] }}:9200/_xpack/security/user/beats_system/_password' -d '{"password":"{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}"}'
 
+create beats_writer user:
+  cmd.run:
+    - name: >
+        curl -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPUT -H 'Content-Type: application/json' 'http://{{ grains["ip4_interfaces"]["eth0"][0] }}:9200/_security/user/beats_writer' -d '{"password":"{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}}","roles":["kibana_admin","superuser"],"full_name":"beats"}'
+
 '/bin/systemctl enable kibana.service':
   cmd.run
 
