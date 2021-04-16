@@ -42,6 +42,10 @@ Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678", "max_player_cou
 #### Note: Currently ran on the minion after sshing in as the steam user
 TODO
 
+### Kibana
+#### Note: Kibana currently deploys with a self-signed cert
+Kibana is deployed at `https://<monitoring_server_ip>:5601/` , you can log in with the user 'elastic' and the password you provided above.
+
 ### External Dependancies
 #### Note: Fetched automatically or included
 - [Sourcemod v1.10.0-r6499](https://www.sourcemod.net/)
