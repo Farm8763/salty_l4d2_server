@@ -1,4 +1,4 @@
-# Dedicated L4D2 Server + Valheim Server
+# Dedicated L4D2 Server + Valheim Server + Elasticstack Monitoring
 ## With custom maps, 5 player coop and 5v5 versus
 Building on some groundwork by [@Mustack](https://github.com/Mustack) , this project automated the creation of a L4D2 Dedicated server. With the 2020 pandemic we started playing more L4D2 and found documentation for setting up a dedicated server severely lacking/outdated. This project will setup a server with some select custom maps, 5 player coop and 5v5 versus. Modify `/srv/salt/top.sls` if you don't want every mod deployed.
 
@@ -29,14 +29,18 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 
 Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678"}'`
 
-##### Optionally, you can pass in server_mode and max_players as well
-`salt '*' state.highstate pillar='{"steamgroup": "<steamgroup #>", "max_player_count": "<number of players>", "server_mode":"<coop|versus>"}'`
+##### Optionally, you can pass in server_mode and max_players for L4D2 as well. For Elastic monitoring, it's recommended to provide a default password
+`salt '*' state.highstate pillar='{"steamgroup": "<steamgroup #>", "max_player_count": "<number of players>", "server_mode":"<coop|versus>", "bootstrap_pass": "<password>"}'`
 
-Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678", "max_player_count": "7", "server_mode":"coop"}'`
+Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678", "max_player_count": "7", "server_mode":"coop", "bootstrap_pass": "Solarwinds123"}'`
 
-### Starting the server after deployed 
+### Starting the L4D2 server after deployed 
 #### Note: Currently ran on the minion after sshing in as the steam user
 `/home/steam/L4D2/srcds_run -console -game left4dead2`
+
+### Starting the Valheim server after deployed 
+#### Note: Currently ran on the minion after sshing in as the steam user
+TODO
 
 ### External Dependancies
 #### Note: Fetched automatically or included
