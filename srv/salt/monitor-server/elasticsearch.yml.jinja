@@ -20,7 +20,7 @@
 #
 # Use a descriptive name for the node:
 #
-#node.name: node-1
+node.name: node-1
 #
 # Add custom attributes to the node:
 #
@@ -71,7 +71,7 @@ discovery.seed_hosts: ["{{ grains['ip4_interfaces']['eth0'][0] }}"]
 #
 # Bootstrap the cluster using an initial set of master-eligible nodes:
 #
-#cluster.initial_master_nodes: ["node-1", "node-2"]
+cluster.initial_master_nodes: ["node-1"]
 #
 # For more information, consult the discovery and cluster formation module documentation.
 #
@@ -80,3 +80,14 @@ discovery.seed_hosts: ["{{ grains['ip4_interfaces']['eth0'][0] }}"]
 # Require explicit names when deleting indices:
 #
 #action.destructive_requires_name: true
+#
+#Enable secure elasticsearch
+xpack.security.enabled: true
+#xpack.security.http.ssl.enabled: true
+#xpack.security.http.ssl.key: /etc/ssl/private/elastic_server.key
+#xpack.security.http.ssl.certificate: /etc/ssl/certs/elastic_server.crt
+#xpack.security.http.ssl.verification_mode: none
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: none
+xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
