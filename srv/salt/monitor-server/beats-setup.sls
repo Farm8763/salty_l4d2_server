@@ -10,13 +10,41 @@ setup_repo:
 filebeat:
   pkg.installed
 
+metricbeat:
+  pkg.installed
+
+heartbeat-elastic:
+  pkg.installed
+
 /etc/filebeat/filebeat.yml:
   file.managed:
     - template: jinja
     - source: salt://monitor-server/filebeat.yml.jinja
 
+/etc/metricbeat/metricbeat.yml:
+  file.managed:
+    - template: jinja
+    - source: salt://monitor-server/metricbeat.yml.jinja
+
+/etc/heartbeat/heartbeat.yml:
+  file.managed:
+    - template: jinja
+    - source: salt://monitor-server/heartbeat.yml.jinja
+
 '/bin/systemctl enable filebeat.service':
   cmd.run
 
+'/bin/systemctl enable metricbeat.service':
+  cmd.run
+
+'/bin/systemctl enable heartbeat-elastic.service':
+  cmd.run
+
 '/bin/systemctl start filebeat.service':
+  cmd.run
+
+'/bin/systemctl start metricbeat.service':
+  cmd.run
+
+'/bin/systemctl start heartbeat-elastic.service':
   cmd.run
