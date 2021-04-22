@@ -1,0 +1,26 @@
+PUT _ingest/pipeline/Parse kill count
+{
+  "processors": [
+    {
+      "grok": {
+        "field": "message",
+        "patterns": [
+          "\\[(?:.*)\\] %{DATA:l4d2.class}::Event_%{DATA:l4d2.event} \\[%{DATA:l4d2.user1}\\] \\[%{NUMBER:l4d2.death_count}"
+        ],
+        "ignore_missing": true,
+        "ignore_failure": true,
+        "description": "Find kill events"
+      }
+    },
+    {
+      "grok": {
+        "field": "message",
+        "patterns": [
+          "\\[(?:.*)\\] %{DATA:l4d2.class}::Event_%{DATA:l4d2.event} \\[%{DATA:l4d2.user1}\\] %{WORD:l4d2.action} \\[%{USER:l4d2.user2}"
+        ],
+        "ignore_missing": true,
+        "ignore_failure": true
+      }
+    }
+  ]
+}
