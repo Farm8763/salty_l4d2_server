@@ -36,7 +36,7 @@ Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678", "max_player_cou
 
 ### Starting the L4D2 server after deployed 
 #### Note: Currently ran on the minion after sshing in as the steam user
-`/home/steam/L4D2/srcds_run -console -game left4dead2 -gamestatsloggingtofile`
+`/home/steam/L4D2/srcds_run -console -game left4dead2 -gamestatsloggingtofile -condebug -developer -dev`
 
 ### Starting the Valheim server after deployed 
 #### Note: Currently ran on the minion after sshing in as the steam user
