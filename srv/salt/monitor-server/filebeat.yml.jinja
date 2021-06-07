@@ -179,6 +179,7 @@ setup.kibana:
 output.elasticsearch:
   # Array of hosts to connect to.
   hosts: "{{ ip }}:9200"
+  pipeline: "parse_kill_count"
   # Protocol - either `http` (default) or `https`.
 #  protocol: "https"
 
