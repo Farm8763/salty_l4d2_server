@@ -27,7 +27,8 @@ filebeat.inputs:
   paths:
  #   - /var/log/*.log
     - /home/steam/L4D2/left4dead2/gamestats.log
-    #- c:\programdata\elasticsearch\logs\*
+    - /home/steam/L4D2/left4dead2/console.log
+  #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
   # matching any regular expression from the list.
@@ -180,7 +181,7 @@ output.elasticsearch:
   # Array of hosts to connect to.
   hosts: "{{ ip }}:9200"
   pipeline: "parse_kill_count"
-  # Protocol - either `http` (default) or `https`.
+# Protocol - either `http` (default) or `https`.
 #  protocol: "https"
 
   # Authentication credentials - either API key or username/password.
@@ -212,6 +213,13 @@ processors:
   - add_kubernetes_metadata: ~
 
 # ================================== Logging ===================================
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
 
 # Sets log level. The default log level is info.
 # Available log levels are: error, warning, info, debug
