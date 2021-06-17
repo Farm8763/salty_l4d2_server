@@ -46,7 +46,7 @@ TODO
 #### Note: Kibana currently deploys with a self-signed cert
 Kibana is deployed at `https://<monitoring_server_ip>:5601/` , you can log in with the user 'elastic' and the password you provided above.
 
-Filebeat will be deployed to the L4D2 server, and the ingest pipeline will be set up automatically in Kibana/Elasticsearch to parse the incomming logs.
+Filebeat will be deployed to the L4D2 server, and the ingest pipeline will be set up automatically in Kibana/Elasticsearch to parse the incoming logs.
 
 ### External Dependancies
 #### Note: Fetched automatically or included
