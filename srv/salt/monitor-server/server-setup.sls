@@ -187,3 +187,14 @@ add pipeline:
 
 '/bin/systemctl start kibana.service':
   cmd.run
+  
+  copy_file_index.ndjson:
+  file.managed:
+    - name: /tmp/file_index.ndjson
+    - source: salt://file_index.ndjson
+    - makedirs: True
+
+load file index:
+  cmd.run:
+    - name: >
+        curl -k -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPOST -H 'kbn-xsrf: true' 'https://{{ grains["ip4_interfaces"]["eth0"][0] }}:5601/api/saved_objects/_import' --form file=@/tmp/file_index.ndjson
