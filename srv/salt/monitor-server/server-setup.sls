@@ -175,7 +175,7 @@ activate maps-policy:
 add pipeline:
   cmd.run:
     - name: >
-        curl -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPUT  -H 'Content-Type: application/json' 'http://{{ grains["ip4_interfaces"]["eth0"][0] }}:9200/_ingest/pipeline/parse_kill_count' -d '{"processors" : [{"grok": {"field": "message","patterns": ["L\\s*.*\\s*-\\s*.*:\\s*.*\"%{DATA:user1}<.*><.*><%{WORD:user1_team}><.*><.*><.*><.*><.*>\"\\s*%{WORD:l4d2.action}\\s*\"%{DATA:user2}<.*><.*><%{WORD:user2_team}><.*><.*><.*><.*><.*>\"\\s*.*\\s*\"%{DATA:weapon}\"","L\\s*.*\\s*-\\s*.*:\\s%{WORD:server_action}\\smap\\s\"%{WORD:map}\"*.*"],"ignore_missing": true,"tag": "Kill processor","ignore_failure": true}},{"enrich": {"field": "map","policy_name": "maps-policy","target_field": "l4d2","ignore_missing": true,"ignore_failure": true}}]}'
+        curl -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPUT  -H 'Content-Type: application/json' 'http://{{ grains["ip4_interfaces"]["eth0"][0] }}:9200/_ingest/pipeline/parse_kill_count' -d '{"processors" : [{"grok": {"field": "message","patterns": ["L\\s*.*\\s*-\\s*.*:\\s*.*\"%{DATA:l4d2.user1}<.*><.*><%{WORD:l4d2.user1_team}><.*><.*><.*><.*><.*>\"\\s*%{WORD:l4d2.action}\\s*\"%{DATA:l4d2.user2}<.*><.*><%{WORD:l4d2.user2_team}><.*><.*><.*><.*><.*>\"\\s*.*\\s*\"%{DATA:l4d2.weapon}\"","L\\s*.*\\s*-\\s*.*:\\s%{WORD:l4d2.server_action}\\smap\\s\"%{WORD:map}\"*.*"],"ignore_missing": true,"tag": "Kill processor","ignore_failure": true}},{"enrich": {"field": "map","policy_name": "maps-policy","target_field": "l4d2","ignore_missing": true,"ignore_failure": true}}]}'
 
 '/bin/systemctl enable kibana.service':
   cmd.run
