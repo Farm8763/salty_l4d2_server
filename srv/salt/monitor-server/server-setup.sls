@@ -175,7 +175,7 @@ activate maps-policy:
 add pipeline:
   cmd.run:
     - name: >
-        curl -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPUT  -H 'Content-Type: application/json' 'http://{{ grains["ip4_interfaces"]["eth0"][0] }}:9200/_ingest/pipeline/parse_kill_count' -d '{"processors" : [{"grok": {"field": "message","patterns": ["L\\s*.*\\s*-\\s*.*:\\s*.*\"%{DATA:l4d2.user1}<.*><.*><%{WORD:l4d2.user1_team}><.*><.*><.*><.*><.*>\"\\s*%{WORD:l4d2.action}\\s*\"%{DATA:l4d2.user2}<.*><.*><%{WORD:l4d2.user2_team}><.*><.*><.*><.*><.*>\"\\s*.*\\s*\"%{DATA:l4d2.weapon}\"","L\\s*.*\\s*-\\s*.*:\\s%{WORD:l4d2.server_action}\\smap\\s\"%{WORD:map}\"*.*"],"ignore_missing": true,"tag": "Kill processor","ignore_failure": true}},{"enrich": {"field": "map","policy_name": "maps-policy","target_field": "l4d2","ignore_missing": true,"ignore_failure": true}}]}'
+        curl -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPUT  -H 'Content-Type: application/json' 'http://{{ grains["ip4_interfaces"]["eth0"][0] }}:9200/_ingest/pipeline/parse_kill_count' -d '{"processors" : [{"grok": {"field": "message","patterns": ["L\\s*.*\\s*-\\s*.*:\\s*.*\"%{DATA:l4d2.user1}<.*><.*><%{WORD:l4d2.user1_team}><.*><.*><.*><.*><.*>\"\\s*%{WORD:l4d2.action}\\s*\"%{DATA:l4d2.user2}<.*><.*><%{WORD:l4d2.user2_team}><.*><.*><.*><.*><.*>\"\\s*.*\\s*\"%{DATA:l4d2.weapon}\"","L\\s*.*\\s*-\\s*.*:\\s%{WORD:l4d2.server_action}\\smap\\s\"%{WORD:map}\"*.*","\\[(?:.*)\\] %{DATA:l4d2.class}::Event_%{DATA:l4d2.event} \\[%{DATA:l4d2.user1}\\] \\[%{NUMBER:l4d2.death_count}"],"ignore_missing": true,"tag": "Kill processor","ignore_failure": true}},{"enrich": {"field": "map","policy_name": "maps-policy","target_field": "l4d2","ignore_missing": true,"ignore_failure": true}}]}'
 
 '/bin/systemctl enable kibana.service':
   cmd.run
@@ -187,8 +187,8 @@ add pipeline:
 
 '/bin/systemctl start kibana.service':
   cmd.run
-  
-  copy_file_index.ndjson:
+
+copy_file_index.ndjson:
   file.managed:
     - name: /tmp/file_index.ndjson
     - source: salt://file_index.ndjson
@@ -198,3 +198,14 @@ load file index:
   cmd.run:
     - name: >
         curl -k -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPOST -H 'kbn-xsrf: true' 'https://{{ grains["ip4_interfaces"]["eth0"][0] }}:5601/api/saved_objects/_import' --form file=@/tmp/file_index.ndjson
+
+copy_file_L4D2_objects.ndjson:
+  file.managed:
+    - name: /tmp/L4D2_objects.ndjson
+    - source: salt://L4D2_objects.ndjson
+    - makedirs: True
+
+load file L4D2_objects:
+  cmd.run:
+    - name: >
+        curl -k -uelastic:{{salt['pillar.get']('bootstrap_pass','Solarwinds123')}} -XPOST -H 'kbn-xsrf: true' 'https://{{ grains["ip4_interfaces"]["eth0"][0] }}:5601/api/saved_objects/_import?overwrite=true' --form file=@/tmp/L4D2_objects.ndjson
