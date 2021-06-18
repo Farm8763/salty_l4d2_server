@@ -16,6 +16,15 @@ metricbeat:
 heartbeat-elastic:
   pkg.installed
 
+'/bin/systemctl stop filebeat.service':
+  cmd.run
+
+'/bin/systemctl stop metricbeat.service':
+  cmd.run
+
+'/bin/systemctl stop heartbeat-elastic.service':
+  cmd.run
+
 /etc/filebeat/filebeat.yml:
   file.managed:
     - template: jinja
