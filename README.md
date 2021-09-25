@@ -48,6 +48,29 @@ Kibana is deployed at `https://<monitoring_server_ip>:5601/` , you can log in wi
 
 Filebeat will be deployed to the L4D2 server, and the ingest pipeline will be set up automatically in Kibana/Elasticsearch to parse the incoming logs.
 
+### Sample visualizations
+##### Kill/Death Stats
+![kills](https://user-images.githubusercontent.com/1817337/134778074-09cd6955-8253-4bc2-8cca-1e185c4570b9.JPG)
+
+##### More Kill/Death Stats
+![more_kill](https://user-images.githubusercontent.com/1817337/134778089-91949489-e08e-4c72-8d74-fb63345fa0e1.JPG)
+
+##### Tracking who killed who
+![revenge](https://user-images.githubusercontent.com/1817337/134778092-e6686679-ad3b-4367-afd8-3e180ab5f0d4.JPG)
+
+##### Weapon Damage Word Cloud
+![word_damage](https://user-images.githubusercontent.com/1817337/134778094-ae058e67-b00c-40f7-87de-6cce316959c9.JPG)
+
+##### Zombie Weapon Stats
+![zomb_weapons](https://user-images.githubusercontent.com/1817337/134778099-98f9a56c-9bdd-42ca-a765-cdd3f48d84f7.JPG)
+
+##### The weapons that killed you
+![killed_by](https://user-images.githubusercontent.com/1817337/134778101-3a1c9b4f-3ddc-4cc7-a990-c31fd424a7d6.JPG)
+
+##### Your top weapons
+![7weapons](https://user-images.githubusercontent.com/1817337/134778103-59c18a72-16dd-4e66-bf48-a6b42dd45f17.JPG)
+
+
 ### External Dependancies
 #### Note: Fetched automatically or included
 - [Sourcemod v1.10.0-r6499](https://www.sourcemod.net/)
@@ -63,6 +86,7 @@ Filebeat will be deployed to the L4D2 server, and the ingest pipeline will be se
 - [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Linux)
 - [Original server config](https://www.dropbox.com/s/5i7kovj8fd2g6zv/Detailed%20Server%20Config.txt?dl=0)
 - [Custom L4D2 Campaigns](https://steamcommunity.com/sharedfiles/filedetails/?id=625654184)
+
 
 
 ### TODO 
