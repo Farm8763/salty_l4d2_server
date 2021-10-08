@@ -49,6 +49,7 @@ Kibana is deployed at `https://<monitoring_server_ip>:5601/` , you can log in wi
 Filebeat will be deployed to the L4D2 server, and the ingest pipeline will be set up automatically in Kibana/Elasticsearch to parse the incoming logs.
 
 ### Sample visualizations
+#### Note: Names have been changed
 ##### Kill/Death Stats
 ![kills](https://user-images.githubusercontent.com/1817337/134778074-09cd6955-8253-4bc2-8cca-1e185c4570b9.JPG)
 
