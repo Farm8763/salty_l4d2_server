@@ -1,4 +1,4 @@
-# Dedicated L4D2 Server + Valheim Server + Elasticstack Monitoring
+# Dedicated L4D2 Server + Elasticstack Monitoring
 ## With custom maps, 5 player coop and 5v5 versus
 Building on some groundwork by [@Mustack](https://github.com/Mustack) , this project automated the creation of a L4D2 Dedicated server. With the 2020 pandemic we started playing more L4D2 and found documentation for setting up a dedicated server severely lacking/outdated. This project will setup a server with some select custom maps, 5 player coop and 5v5 versus. Modify `/srv/salt/top.sls` if you don't want every mod deployed.
 
@@ -37,10 +37,6 @@ Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678", "max_player_cou
 ### Starting the L4D2 server after deployed 
 #### Note: Currently ran on the minion after sshing in as the steam user
 `/home/steam/L4D2/srcds_run -console -game left4dead2 -gamestatsloggingtofile -condebug -developer -dev`
-
-### Starting the Valheim server after deployed 
-#### Note: Currently ran on the minion after sshing in as the steam user
-TODO
 
 ### Kibana
 #### Note: Kibana currently deploys with a self-signed cert
