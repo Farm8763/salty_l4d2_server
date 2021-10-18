@@ -15,8 +15,15 @@ Building on some groundwork by [@Mustack](https://github.com/Mustack) , this pro
 ### Command to spin up a droplet (dev droplet)
 `salt-cloud -P -m /etc/salt/cloud.maps.d/dev-environment.map -l debug`
 
+### Spinning up an AWS EC2 instance
+- You need to set up ssh keys with AWS, as well as access keys. 
+- Add your missing values to `/etc/salt/cloud.providers.d/ec2.conf`
+
+### Command to spin up an AWS EC2 instance (test)
+`salt-cloud -P -m /etc/salt/cloud.maps.d/test-environment.map -l debug`
+
 ### Deploying L4D2 server to minion
-#### Note: If you spun up the DigitalOcean droplet with the code above, it's already a minion. Otherwise you're on your own. 
+#### Note: If you spun up the DigitalOcean droplet/AWS ec2 instance with the code above, it's already a minion. Otherwise you're on your own. 
 - You need the Steam Group ID when deploying the server (below). To get the value for your group, in the 'Edit group profile' the 'ID' is the group number you need for the server
 - Clients need to subscribe to the workshop maps [Steam Workshop Collection](https://steamcommunity.com/sharedfiles/filedetails/?id=2218692186) or they can't connect when using a custom map.
 - Workshop files were too big for Github to be uploaded. They need to go into `/srv/salt/l4d2-mods/workshop` on the salt master. See [Google Drive with big files](https://drive.google.com/drive/folders/1a0FjSMaqX_FOQyrt26YtgmdzSO_SrCBg?usp=sharing)
@@ -36,10 +43,12 @@ Eg: `salt '*' state.highstate pillar='{"steamgroup": "12345678", "max_player_cou
 
 ### Starting the L4D2 server after deployed 
 #### Note: Currently ran on the minion after sshing in as the steam user
+#### Note2: For AWS EC2 you need to add rules in the security group for SSH (to SSH in as steam user) and UDP to 27015 to allow client/player access to the L4D2 server
 `/home/steam/L4D2/srcds_run -console -game left4dead2 -gamestatsloggingtofile -condebug -developer -dev`
 
 ### Kibana
 #### Note: Kibana currently deploys with a self-signed cert
+#### Note2: TODO might need to enable TCP access in AWS for the Kibana server to connect
 Kibana is deployed at `https://<monitoring_server_ip>:5601/` , you can log in with the user 'elastic' and the password you provided above.
 
 Filebeat will be deployed to the L4D2 server, and the ingest pipeline will be set up automatically in Kibana/Elasticsearch to parse the incoming logs.
