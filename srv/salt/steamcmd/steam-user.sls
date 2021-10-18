@@ -13,9 +13,11 @@ steam:
     - mode: 755
     - makedirs: True
 
-'cp /root/.ssh/authorized_keys /home/steam/.ssh/authorized_keys':
-  cmd.run:
-    - creates: /home/steam/.ssh/authorized_keys
+steam user ssh key:
+  ssh_auth.present:
+    - user: steam
+    - source: salt://ssh_keys/steam.id_rsa.pub
+    - config: '%h/.ssh/authorized_keys'
 
 /home/steam/.ssh/:
   file.directory:
